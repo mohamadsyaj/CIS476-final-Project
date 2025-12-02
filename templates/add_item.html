@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+{% block title %}Add Item{% endblock %}
+{% block content %}
+<div class="container"><div class="card">
+  <h2>Add Vault Item</h2>
+  <form method="post">
+    <label>Title: <input name="title" required value="{{ item.title if item else '' }}"></label>
+    <label>Type:
+      <select name="item_type">
+        <option value="Login" {% if item and item.item_type == 'Login' %}selected{% endif %}>Login</option>
+        <option value="CreditCard" {% if item and item.item_type == 'CreditCard' %}selected{% endif %}>Credit Card</option>
+        <option value="Identity" {% if item and item.item_type == 'Identity' %}selected{% endif %}>Identity</option>
+        <option value="SecureNote" {% if item and item.item_type == 'SecureNote' %}selected{% endif %}>Secure Note</option>
+      </select>
+    </label>
+
+    <h4>Fields (key => value)</h4>
+    <label>username: <input name="username" value="{{ fields.username if fields and fields.username is defined else '' }}"></label>
+    <label>password: <input name="password" value="{{ fields.password if fields and fields.password is defined else '' }}"></label>
+    <label>url: <input name="url" value="{{ fields.url if fields and fields.url is defined else '' }}"></label>
+    <label>card_number: <input name="card_number" value="{{ fields.card_number if fields and fields.card_number is defined else '' }}"></label>
+    <label>cvv: <input name="cvv" value="{{ fields.cvv if fields and fields.cvv is defined else '' }}"></label>
+    <label>expiry: <input type="month" name="expiry" value="{{ fields.expiry[:7] if fields and fields.expiry is defined else '' }}"></label>
+    <label>passport number: <input name="passport" value="{{ fields.passport if fields and fields.passport is defined else '' }}"></label>
+    <label>passport expiry: <input type="date" name="passport_expiry" value="{{ fields.passport_expiry if fields and fields.passport_expiry is defined else '' }}"></label>
+    <label>license number: <input name="license" value="{{ fields.license if fields and fields.license is defined else '' }}"></label>
+    <label>license expiry: <input type="date" name="license_expiry" value="{{ fields.license_expiry if fields and fields.license_expiry is defined else '' }}"></label>
+    <label>ssn: <input name="ssn" value="{{ fields.ssn if fields and fields.ssn is defined else '' }}"></label>
+    <label>notes: <textarea name="notes">{{ fields.notes if fields and fields.notes is defined else '' }}</textarea></label>
+
+    <button type="submit">Save</button>
+  </form>
+</div></div>
+{% endblock %}

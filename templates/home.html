@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block title %}MyPass - Home{% endblock %}
+{% block content %}
+<div class="container"><div class="card">
+    <h2>Welcome, {{ user.email }}</h2>
+        <ul>
+                <li><a href="{{ url_for('vault') }}">Vault</a></li>
+                <li><a href="{{ url_for('add_item') }}">Add Item</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+        <h3>Notifications</h3>
+        {% if notifications and notifications|length > 0 %}
+        <form method="post" action="{{ url_for('clear_notifications') }}" style="margin-bottom:8px;">
+            <button type="submit" class="small">Clear notifications</button>
+        </form>
+        <ul id="notifications-list">
+        {% for n in notifications %}
+            <li class="small-muted">{{ n.timestamp.strftime('%Y-%m-%d %H:%M') }} — {{ n.content }}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p class="small-muted">No new notifications</p>
+        {% endif %}
+</div></div>
+{% endblock %}

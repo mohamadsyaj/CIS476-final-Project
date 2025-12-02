@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block title %}View Item{% endblock %}
+{% block content %}
+<div class="container"><div class="card">
+  <h2>{{ item.title }} ({{ item.item_type }})</h2>
+  <table>
+    {% for k, v in masked.items() %}
+      <tr>
+        <td>{{ k }}</td>
+        <td class="field-value" data-field="{{ k }}" data-masked="{{ v|e }}">{{ v }}</td>
+        <td>
+          <button class="unmask" data-field="{{ k }}" data-id="{{ item.id }}">Unmask</button>
+          <button class="copy" data-field="{{ k }}" data-id="{{ item.id }}">Copy</button>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+  <script>
+  // copy and unmask handled by global mypass.js
+  document.addEventListener('DOMContentLoaded', () => {
+    // nothing here; mypass.js will initialize handlers
+  })
+  </script>
+</div></div>
+{% endblock %}

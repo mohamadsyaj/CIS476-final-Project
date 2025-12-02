@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% block title %}Recover Account{% endblock %}
+{% block content %}
+<div class="container"><div class="card">
+    <h2>Password Recovery</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if not user %}
+    <form method="post">
+        <label>Email: <input type="email" name="email" required></label>
+        <button type="submit">Next</button>
+    </form>
+    {% else %}
+    <form method="post">
+        <input type="hidden" name="email" value="{{ user.email }}">
+
+        <label>{{ user.sec_q1 }}<br>
+            Answer: <input type="text" name="a1" required>
+        </label>
+
+        <label>{{ user.sec_q2 }}<br>
+            Answer: <input type="text" name="a2" required>
+        </label>
+
+        <label>{{ user.sec_q3 }}<br>
+            Answer: <input type="text" name="a3" required>
+        </label>
+
+        <label>New Password:
+            <div style="display:flex;gap:8px;align-items:center;">
+                <input id="new_password" type="password" name="new_password" required style="flex:1">
+                <button type="button" id="generate-password-recover" class="generate-password">Generate</button>
+                <button type="button" id="toggle-new-password-btn" class="toggle-password" data-target="new_password">Show</button>
+            </div>
+        </label>
+        <div id="recover-password-hint" class="small-hint" aria-live="polite"></div>
+
+        <div style="margin-top:12px;">
+            <button type="submit" name="reset">Reset Password</button>
+        </div>
+    </form>
+        <!-- Toggle logic handled centrally in `base.html` and `static/mypass.js` -->
+    {% endif %}
+</div></div>
+{% endblock %}

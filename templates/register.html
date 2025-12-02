@@ -1,0 +1,57 @@
+
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="container"><div class="card">
+    <h2>Register</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <label>Email: <input type="email" name="email" required></label>
+        <label>Password: <input type="password" id="password" name="password" required>
+            <button type="button" id="generate-password">Generate</button>
+            <button type="button" id="toggle-password-btn" class="toggle-password" data-target="password">Show</button>
+        </label>
+        <div id="password-hint" class="small-hint" aria-live="polite"></div>
+
+        <h4>Security Question 1</h4>
+        <label>Question:
+            <select name="q1" required>
+                <option value="What was the name of your first pet?">What was the name of your first pet?</option>
+                <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                <option value="In which city were you born?">In which city were you born?</option>
+            </select>
+        </label>
+        <label>Answer: <input name="a1" required></label>
+
+        <h4>Security Question 2</h4>
+        <label>Question:
+            <select name="q2" required>
+                <option value="What was the model of your first car?">What was the model of your first car?</option>
+                <option value="What street did you grow up on?">What street did you grow up on?</option>
+                <option value="What is the name of your favorite teacher?">What is the name of your favorite teacher?</option>
+            </select>
+        </label>
+        <label>Answer: <input name="a2" required></label>
+
+        <h4>Security Question 3</h4>
+        <label>Question:
+            <select name="q3" required>
+                <option value="What was your childhood nickname?">What was your childhood nickname?</option>
+                <option value="What is the name of your first employer?">What is the name of your first employer?</option>
+                <option value="What was the name of the town your parents met in?">What was the name of the town your parents met in?</option>
+            </select>
+        </label>
+        <label>Answer: <input name="a3" required></label>
+
+        <button type="submit">Register</button>
+        </form>
+        <!-- Toggle logic handled centrally in `base.html` and `static/mypass.js` -->
+</div></div>
+{% endblock %}

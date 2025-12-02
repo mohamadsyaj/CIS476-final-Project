@@ -1,0 +1,47 @@
+body { font-family: Arial, sans-serif; background:#0f1724; color:#d1d5db; }
+.container { max-width:800px; margin:30px auto; padding:24px; background:#0b1220; border-radius:8px; }
+.card h2{ margin-top:0 }
+button{ background:#fff; color:#111; border:none; padding:8px 12px; border-radius:6px }
+.small-hint{ font-size:0.9rem }
+:root{
+  --bg:#0f1724;
+  --card:#111827;
+  --accent:#4f46e5;
+  --muted:#94a3b8;
+  --text:#e6eef8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:linear-gradient(180deg,var(--bg),#071128);
+  color:var(--text);
+  padding:24px;
+}
+nav{background:transparent;padding:12px 18px;border-radius:8px;margin-bottom:18px}
+nav a{color:var(--muted);text-decoration:none;margin-right:12px}
+nav a:hover{color:var(--text)}
+.container{max-width:980px;margin:0 auto;background:transparent;padding:18px}
+h1,h2,h3{color:var(--text)}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));padding:18px;border-radius:10px;margin-bottom:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+form label{display:block;margin-bottom:8px;color:var(--muted)}
+input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+button{background:white;color:var(--bg);padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+a{color:var(--muted)}
+/* make action links look like white buttons */
+.actions a, .btn-link{background:white;color:var(--bg);padding:6px 10px;border-radius:8px;text-decoration:none}
+.copy-btn{background:white;color:var(--bg);}
+pre{background:#0b1220;border-radius:8px;padding:8px;color:var(--muted);overflow:auto}
+.flash-message{background:#2a3340;padding:8px;border-radius:6px;margin-bottom:8px;color:#ffd}
+.vault-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.vault-item{padding:12px;border-radius:8px;background:rgba(255,255,255,0.02)}
+
+.small-muted{color:var(--muted);font-size:0.9rem}
+.actions{display:flex;gap:8px;margin-top:10px}
+.pill{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;color:var(--muted)}
+.pill, .preview-field, .vault-item strong {word-break:break-word;overflow-wrap:anywhere}
+.field-value{word-break:break-word;overflow-wrap:anywhere;max-width:520px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.logo{font-weight:700;color:var(--accent)}
+.copy-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:6px 8px;border-radius:6px}
+.muted-note{font-size:0.9rem;color:var(--muted);margin-top:8px}

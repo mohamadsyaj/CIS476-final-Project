@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+{% block title %}Vault{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    <h2>Your Vault</h2>
+    <a href="{{ url_for('add_item') }}">Add new item</a>
+    <div class="vault-grid">
+      {% for it in items %}
+        <div class="vault-item">
+          <strong>{{ it.title }}</strong>
+          <div class="small-muted">Type: {{ it.type }}</div>
+          <div class="muted-note">Preview:</div>
+          <div>
+            {% for k, v in it.preview.items() %}
+              <div class="pill">{{ k }}: <span class="preview-field">{{ v }}</span></div>
+            {% endfor %}
+          </div>
+          <div class="actions">
+            <a class="btn-link" href="{{ url_for('view_item', item_id=it.id) }}">View</a>
+            <a class="btn-link" href="{{ url_for('vault_edit', item_id=it.id) }}">Modify</a>
+            <a class="btn-link" href="{{ url_for('delete_item', item_id=it.id) }}">Delete</a>
+          </div>
+        </div>
+      {% else %}
+        <div class="vault-item">No items yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
