@@ -1,6 +1,5 @@
 from typing import Dict, Any, Optional
 
-
 class UIComponent:
     def __init__(self, name: str, mediator: Optional['UIMediator'] = None):
         self.name = name
@@ -14,7 +13,6 @@ class UIComponent:
     def receive(self, event: str, payload: Any = None):
         # Other components will override this
         pass
-
 
 class UIMediator:
     def __init__(self):

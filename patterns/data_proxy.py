@@ -32,11 +32,9 @@ class DataProxy:
         # Join everything into a single readable string
         return '; '.join(parts)
 
-
 def mask_preview(data: dict) -> str:
     # Helper wrapper for string preview
     return DataProxy().mask_preview(data)
-
 
 def mask_preview_dict(data: dict) -> dict:
     # Return empty dict if nothing is provided
